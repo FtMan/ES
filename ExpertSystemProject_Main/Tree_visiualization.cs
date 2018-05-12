@@ -115,16 +115,16 @@ namespace ExpertSystemProject_Main
 
         }
 
-        public bool isClickedOnRectangle(Point clickPoint)
+        public bool isClickedOnRectangle(Point clickPoint)//Изменил Location
         {
-            bool is_in_width = (clickPoint.X > rect.X) && (clickPoint.X < rect.X+rect.Width);
-            bool is_in_height = (clickPoint.Y > rect.Y) && (clickPoint.Y < rect.Y + rect.Height);
+            bool is_in_width = (clickPoint.X > rect.Location.X) && (clickPoint.X < rect.Location.X+rect.Width);
+            bool is_in_height = (clickPoint.Y > rect.Location.Y) && (clickPoint.Y < rect.Location.Y + rect.Height);
 
             return (is_in_height && is_in_width);
         }
         public bool isClickedOnEllipse(Point clickPoint)
         {
-            bool is_in_ellipse = ((clickPoint.X - ellipse.X+ ellipse.Height / 2) ^ 2 + (clickPoint.Y - ellipse.Y+ ellipse.Height / 2) ^ 2) < ((ellipse.Height / 2)^2);
+            bool is_in_ellipse =Math.Pow((clickPoint.X - (ellipse.X+ ellipse.Height / 2)),2) + Math.Pow((clickPoint.Y - (ellipse.Y+ ellipse.Height / 2)),2) < Math.Pow((ellipse.Height / 2),2);//Добавил скобки и Math.Pow "Да уж!"
             return is_in_ellipse;
         }
 

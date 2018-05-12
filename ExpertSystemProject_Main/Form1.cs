@@ -678,7 +678,7 @@ namespace ExpertSystemProject_Main
 
             Point downPoint = e.Location;
 
-            if (current_node_view != null)
+            if (current_node_view != null) 
             {
                 if (current_node_view.isClickedOnEllipse(downPoint))
                 {

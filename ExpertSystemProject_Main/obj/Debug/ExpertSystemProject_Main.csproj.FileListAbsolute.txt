@@ -8,3 +8,12 @@ D:\VisualStudio17\ExpertSystemProject_Main\ExpertSystemProject_Main\obj\Debug\Ex
 D:\VisualStudio17\ExpertSystemProject_Main\ExpertSystemProject_Main\obj\Debug\ExpertSystemProject_Main.exe
 D:\VisualStudio17\ExpertSystemProject_Main\ExpertSystemProject_Main\obj\Debug\ExpertSystemProject_Main.pdb
 D:\VisualStudio17\ExpertSystemProject_Main\ExpertSystemProject_Main\obj\Debug\ExpertSystemProject_Main.csprojAssemblyReference.cache
+D:\Git_Repos\ES\ExpertSystemProject_Main\bin\Debug\ExpertSystemProject_Main.exe.config
+D:\Git_Repos\ES\ExpertSystemProject_Main\obj\Debug\ExpertSystemProject_Main.exe
+D:\Git_Repos\ES\ExpertSystemProject_Main\obj\Debug\ExpertSystemProject_Main.pdb
+D:\Git_Repos\ES\ExpertSystemProject_Main\bin\Debug\ExpertSystemProject_Main.exe
+D:\Git_Repos\ES\ExpertSystemProject_Main\bin\Debug\ExpertSystemProject_Main.pdb
+D:\Git_Repos\ES\ExpertSystemProject_Main\obj\Debug\ExpertSystemProject_Main.csprojResolveAssemblyReference.cache
+D:\Git_Repos\ES\ExpertSystemProject_Main\obj\Debug\ExpertSystemProject_Main.Form1.resources
+D:\Git_Repos\ES\ExpertSystemProject_Main\obj\Debug\ExpertSystemProject_Main.Properties.Resources.resources
+D:\Git_Repos\ES\ExpertSystemProject_Main\obj\Debug\ExpertSystemProject_Main.csproj.GenerateResource.Cache

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Fact_collection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Facts>
+    <Fact>
+      <id>1</id>
+      <text>new answer</text>
+    </Fact>
+    <Fact>
+      <id>2</id>
+      <text>sdf</text>
+    </Fact>
+    <Fact>
+      <id>3</id>
+      <text>new answer</text>
+    </Fact>
+  </Facts>
+</Fact_collection>

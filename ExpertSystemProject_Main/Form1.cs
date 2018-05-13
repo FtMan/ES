@@ -598,7 +598,7 @@ namespace ExpertSystemProject_Main
             {
                 if (nv != current_node_view)
                 {
-                    nv.draw(e.Graphics);
+                    nv.draw(e.Graphics); 
                 }
 
             }
@@ -611,25 +611,36 @@ namespace ExpertSystemProject_Main
                         if (ev != current_edge_view)
                         {
                             ev.draw(e.Graphics);
-                        }
+                    }
 
                     }
                 
 
             }
-            
-
+//** Этот кусок кода добавил Радмир (отрисовка Ребра)-----------------
+            if (isMovingEdge) {
+                Pen pen = new Pen(Color.LightGray,3);
+                pen.EndCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
+                e.Graphics.DrawLine(pen, start_cur_edge, end_cur_edge);                   
+                    }
+        
+ //---------------------------------------------------**
             if (current_node_view != null) current_node_view.draw_highlited(e.Graphics);
-            else if (current_edge_view != null) current_edge_view.draw_heighlited(e.Graphics);
+           else  if (current_edge_view != null) current_edge_view.draw_heighlited(e.Graphics); 
+
+
         }
 
         bool isCreationEdge;
         bool isCreationNode;
         bool isMovingNode;
+        bool isMovingEdge; // добавил Радмир 
         Edge_view down_edge_view;
         Node_view down_node_veiw;
-        
-        
+        Point start_cur_edge; // добавил Радмир 
+        Point end_cur_edge; // добавил Радмир 
+
+
         void pictureBox_mouseClick(object sender, MouseEventArgs e)
         {
             /*Point clickPoint = e.Location;
@@ -683,6 +694,8 @@ namespace ExpertSystemProject_Main
                 if (current_node_view.isClickedOnEllipse(downPoint))
                 {
                     isCreationEdge = true;
+                    isMovingEdge = true; // добавил Радмир
+                    start_cur_edge = new Point(e.Location.X, e.Location.Y);
                     return;
                 }
               
@@ -725,6 +738,7 @@ namespace ExpertSystemProject_Main
         {
             Point upPoint = e.Location;
             isMovingNode = false;
+            isMovingEdge = false; //Добавил Радмир 
             if (isCreationNode)
             {
                 Node_view nv = new Node_view(upPoint);
@@ -809,15 +823,20 @@ namespace ExpertSystemProject_Main
         }
         void pictureBox_mouseMove(object sender, MouseEventArgs e)
         {
-            
-            if(isMovingNode)
+       
+            if(isMovingNode||isMovingEdge)
             {
-
+                if(isMovingNode)
                 current_node_view.move(e.Location);
+
+                if (isMovingEdge) end_cur_edge = new Point(e.Location.X, e.Location.Y); //Добавил   if (isMovingEdge&&current_edge_view!=null)   current_edge_view.update_points();
+
+
                 editor_workspace.Refresh();
 
 
             }
+
         }
 
         void node_view_selected()

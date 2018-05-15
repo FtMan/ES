@@ -471,7 +471,12 @@ namespace ExpertSystemProject_Main
             fd.ShowDialog();                                    //Добавил Радмир
             PathOfSave = fd.SelectedPath;                       //Добавил Радмир
 
-
+            if (questions == null)
+            {
+                questions = new List<Question>();
+                facts = new List<Fact>();
+                nodes = new List<Node>();
+            }
             reset_id_counters();
             reset_exper_system();
             create_expert_system_from_view();

@@ -240,7 +240,7 @@ namespace ExpertSystemProject_Main
         public void remove_self()
         {
             source_node.edge_views.Remove(this);
-            //destination_node.parent_node = null;
+            
         }
 
         public Edge get_edge()

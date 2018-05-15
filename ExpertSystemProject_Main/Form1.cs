@@ -56,6 +56,7 @@ namespace ExpertSystemProject_Main
         Button start;
         Button text_edit;
         Button graphic_edit;
+        Image backGround;
 
         void init_main_menu()
         {
@@ -64,6 +65,7 @@ namespace ExpertSystemProject_Main
             init_text_edit_button();
             init_graphic_edit_button();
             init_chose_es_button();
+            init_backGround();
 
            
 
@@ -79,6 +81,7 @@ namespace ExpertSystemProject_Main
             main_menu_controls.Add(text_edit);
             main_menu_controls.Add(graphic_edit);
             main_menu_controls.Add(chose_es);
+            
 
         }
         
@@ -125,6 +128,10 @@ namespace ExpertSystemProject_Main
             graphic_edit.AutoSize = true;
             graphic_edit.Location = new Point(230, 230);
             graphic_edit.Click += new EventHandler(graphic_edit_button_click);
+        }
+        void init_backGround()
+        {
+           // backGround = Image.FromFile("mainMenuBackGround.png");
         }
 
         // Добавил Радмир -------------------------------------------------------
@@ -509,7 +516,7 @@ namespace ExpertSystemProject_Main
             current_node_view = null;
             current_edge_view = null;
 
-        
+            
             questions.Clear();
             facts.Clear();
             nodes.Clear();
@@ -594,7 +601,7 @@ namespace ExpertSystemProject_Main
             {//bad
                 current_node_view.parent_edge.remove_self();
             }
-            foreach(Edge_view i in current_node_view.edge_views){
+          foreach(Edge_view i in current_node_view.edge_views){
                 i.destination_node.parent_edge = null;
                 i.destination_node.parent_node = null;
             }

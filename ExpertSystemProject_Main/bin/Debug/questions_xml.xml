@@ -6,14 +6,5 @@
       <multimedia_name />
       <id>1</id>
     </Qustion>
-    <Qustion>
-      <text>new qustion</text>
-      <multimedia_name>c.png</multimedia_name>
-      <id>2</id>
-    </Qustion>
-    <Qustion>
-      <text>new qustion</text>
-      <id>3</id>
-    </Qustion>
   </Qustions>
 </Question_collection>

@@ -5,8 +5,8 @@
       <id>1</id>
       <qustion_id>1</qustion_id>
       <nodes_edges>
-     
+        <Edges />
       </nodes_edges>
     </Node>
-   </Nodes>
+  </Nodes>
 </Node_collection>

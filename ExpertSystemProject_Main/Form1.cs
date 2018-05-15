@@ -32,24 +32,27 @@ namespace ExpertSystemProject_Main
             default_size = this.Size;
 
             init_save_module();
-            load_expert_system();
 
-            init_work_space();
-            close_work_space();
+            
+            //  load_expert_system(); Убрал Радмир
+         
+            // init_work_space(); Убрал Радмир
+            // close_work_space(); Убрал Радмир
 
             init_main_menu();
-
-            start_node = nodes[0];
-            current_node = start_node;
-
-            init_graphical_editor();
-            close_graphic_editor();
+            // start_node = nodes[0]; Убрал Радмир
+            // current_node = start_node; Убрал Радмир
+            // init_graphical_editor(); Убрал Радмир
+            // close_graphic_editor(); Убрал Радмир
         }
 
 
         //------main menu----------
         List<Control> main_menu_controls;
         Label title;
+        Button chose_es; //Добавил Радмир
+        String PathOfLoad; //Добавил Радмир
+        String PathOfSave; //Добавил Радмир
         Button start;
         Button text_edit;
         Button graphic_edit;
@@ -60,9 +63,13 @@ namespace ExpertSystemProject_Main
             init_start_button();
             init_text_edit_button();
             init_graphic_edit_button();
+            init_chose_es_button();
+
+           
 
             this.Controls.Add(title);
             this.Controls.Add(start);
+            this.Controls.Add(chose_es);
            // this.Controls.Add(text_edit);
             this.Controls.Add(graphic_edit);
 
@@ -71,6 +78,7 @@ namespace ExpertSystemProject_Main
             main_menu_controls.Add(start);
             main_menu_controls.Add(text_edit);
             main_menu_controls.Add(graphic_edit);
+            main_menu_controls.Add(chose_es);
 
         }
         
@@ -91,6 +99,17 @@ namespace ExpertSystemProject_Main
             start.Click += new EventHandler(start_button_click);
 
         }
+        // Добавил Радмир --------------------------------------------------------
+        void init_chose_es_button()
+        {
+            chose_es = new Button();
+            chose_es.Text = "Chose ES";
+            chose_es.Location = new Point(230, 150);
+            chose_es.Click += new EventHandler(chose_es_button_click);
+
+
+        }
+        //----------------------------------------------------------------------------
         void init_text_edit_button()
         {
             text_edit = new Button();
@@ -108,9 +127,19 @@ namespace ExpertSystemProject_Main
             graphic_edit.Click += new EventHandler(graphic_edit_button_click);
         }
 
+        // Добавил Радмир -------------------------------------------------------
+        void chose_es_button_click(object sender,EventArgs e)
+        {
+            FolderBrowserDialog fd = new FolderBrowserDialog();
+            fd.ShowDialog();
+            PathOfLoad = fd.SelectedPath;
+        }
+        //--------------------------------------------------------------------------
         void start_button_click(object sender, EventArgs e)
         {
-            
+            load_expert_system(); // Добавил Радмир
+            init_work_space();// Добавил Радмир
+            close_work_space();// Добавил Радмир
             close_main_menu();
             open_work_space();
             
@@ -130,7 +159,13 @@ namespace ExpertSystemProject_Main
 
         }
         void graphic_edit_button_click(object sender, EventArgs e)
-        {
+        {  
+            //start_node = nodes[0];// Добавил Радмир
+            //current_node = start_node; //Добавил Радмир
+
+            init_graphical_editor(); //Добавил Радмир
+             close_graphic_editor(); //Добавил Радмир
+         
             close_main_menu();
             open_graphic_editor();
 
@@ -208,8 +243,8 @@ namespace ExpertSystemProject_Main
             isCreationNode = false;
             isMovingNode = false;
 
-            create_node_views_list();
-            create_edge_views_list();
+         //   create_node_views_list(); Убрал Радмир
+          //  create_edge_views_list(); Убрал Радмир
 
             change_edit_pannels();
         }
@@ -348,6 +383,11 @@ namespace ExpertSystemProject_Main
             delete_all.Text = "Delete all";
             delete_all.Click += new EventHandler(em_delete_all_button_click);
 
+            ToolStripButton Load_file = new ToolStripButton(); //Добавил Радмир
+            Load_file.Text = "Load file"; //Добавил Радмир
+            Load_file.Click += new EventHandler(em_Load_file_button_click); // Добавил Радмир
+
+
             ToolStripButton save_file = new ToolStripButton();
             save_file.Text = "Save file";
             save_file.Click += new EventHandler(em_save_file_button_click);
@@ -357,7 +397,7 @@ namespace ExpertSystemProject_Main
             seve_tree_image.Click += new EventHandler(em_save_image_tree_button_click);
 
             drop_down_bt.DropDown.Items.AddRange(new ToolStripItem[]
-                {delete_all,to_main_menu,save_file,seve_tree_image,show_productions});
+                {delete_all,to_main_menu,save_file,Load_file,seve_tree_image,show_productions});
 
             editor_menu.Items.Add(drop_down_bt);
             editor_menu.Items.Add(create_node);
@@ -387,8 +427,35 @@ namespace ExpertSystemProject_Main
             editor_workspace.Refresh();
 
         }
+
+        // Добавил Радмир ----------------------------------------------------------
+        void em_Load_file_button_click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fd = new FolderBrowserDialog();//Добавил Радмир
+            fd.ShowDialog();                                    //Добавил Радмир
+            PathOfLoad = fd.SelectedPath;                       //Добавил Радмир
+            reset_graphic_editor();
+            reset_id_counters();
+            load_expert_system();
+            start_node = nodes[0];// Добавил Радмир
+            current_node = start_node; //Добавил Радмир
+            create_node_views_list(); // Добавил Радмир
+            create_edge_views_list(); // Добавил Радмир
+            editor_workspace.Refresh();
+    
+
+
+        }
+
+        // ----------------------------------------------------------------------------
+
         void em_save_file_button_click(object sender, EventArgs e)
         {
+            FolderBrowserDialog fd = new FolderBrowserDialog();//Добавил Радмир
+            fd.ShowDialog();                                    //Добавил Радмир
+            PathOfSave = fd.SelectedPath;                       //Добавил Радмир
+
+
             reset_id_counters();
             reset_exper_system();
             create_expert_system_from_view();
@@ -898,6 +965,8 @@ namespace ExpertSystemProject_Main
 
             this.WindowState = FormWindowState.Normal;
         }
+
+
         void open_graphic_editor()
         {
             this.WindowState = FormWindowState.Maximized;
@@ -910,8 +979,8 @@ namespace ExpertSystemProject_Main
             node_views.Clear();
             width = 0;
 
-            create_node_views_list();
-            create_edge_views_list();
+            //create_node_views_list(); Убрал Радмир
+            //create_edge_views_list(); Убрал Радмир
             editor_workspace.Refresh();
 
         }
@@ -1238,7 +1307,7 @@ namespace ExpertSystemProject_Main
             XmlReaderSettings settings = new XmlReaderSettings();
             settings.Async = true;
 
-            FileStream fileStream = new FileStream("nodes_xml.xml", FileMode.Open);
+            FileStream fileStream = new FileStream(PathOfLoad+'/'+"nodes_xml.xml", FileMode.Open); //Было FileStream fileStream = new FileStream("nodes_xml.xml", FileMode.Open); Радмир
             var xmlReader = XmlReader.Create(fileStream, settings);
 
             nodes_xml_serialize = (Node_collection)xmlSerializer.Deserialize(xmlReader);
@@ -1253,7 +1322,7 @@ namespace ExpertSystemProject_Main
             XmlReaderSettings settings = new XmlReaderSettings();
             settings.Async = true;
 
-            FileStream fileStream = new FileStream("facts_xml.xml", FileMode.Open);
+            FileStream fileStream = new FileStream(PathOfLoad + '/'+"facts_xml.xml", FileMode.Open); //Было FileStream fileStream = new FileStream("facts_xml.xml", FileMode.Open); Радмир
             var xmlReader = XmlReader.Create(fileStream, settings);
 
             facts_xml_serialize = (Fact_collection)xmlSerializer.Deserialize(xmlReader);
@@ -1268,7 +1337,7 @@ namespace ExpertSystemProject_Main
             XmlReaderSettings settings = new XmlReaderSettings();
             settings.Async = true;
 
-            FileStream fileStream = new FileStream("questions_xml.xml", FileMode.Open);
+            FileStream fileStream = new FileStream(PathOfLoad + '/'+"questions_xml.xml", FileMode.Open); // Было FileStream fileStream = new FileStream("questions_xml.xml", FileMode.Open); Радмир
             var xmlReader = XmlReader.Create(fileStream, settings);
 
             questions_xml_serialize = (Question_collection)xmlSerializer.Deserialize(xmlReader);
@@ -1287,7 +1356,7 @@ namespace ExpertSystemProject_Main
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
             settings.NewLineOnAttributes = true;
-            XmlWriter xmlWriter = XmlWriter.Create("nodes_xml.xml", settings);
+            XmlWriter xmlWriter = XmlWriter.Create(PathOfSave+'/'+"nodes_xml.xml", settings); // Было XmlWriter xmlWriter = XmlWriter.Create("nodes_xml.xml", settings); Радмир
 
 
             xmlSerializer.Serialize(xmlWriter, nodes_xml_serialize);
@@ -1305,7 +1374,7 @@ namespace ExpertSystemProject_Main
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
             settings.NewLineOnAttributes = true;
-            XmlWriter xmlWriter = XmlWriter.Create("facts_xml.xml", settings);
+            XmlWriter xmlWriter = XmlWriter.Create(PathOfSave + '/' + "facts_xml.xml", settings); //Было XmlWriter xmlWriter = XmlWriter.Create("facts_xml.xml", settings); Радмир
 
             xmlSerializer.Serialize(xmlWriter, facts_xml_serialize);
             xmlWriter.Close();
@@ -1321,7 +1390,7 @@ namespace ExpertSystemProject_Main
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
             settings.NewLineOnAttributes = true;
-            XmlWriter xmlWriter = XmlWriter.Create("questions_xml.xml", settings);
+            XmlWriter xmlWriter = XmlWriter.Create(PathOfSave + '/' + "questions_xml.xml", settings); //Было   XmlWriter xmlWriter = XmlWriter.Create("questions_xml.xml", settings); Радмир
 
             xmlSerializer.Serialize(xmlWriter, questions_xml_serialize);
             xmlWriter.Close();

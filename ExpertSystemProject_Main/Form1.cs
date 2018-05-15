@@ -594,6 +594,10 @@ namespace ExpertSystemProject_Main
             {//bad
                 current_node_view.parent_edge.remove_self();
             }
+            foreach(Edge_view i in current_node_view.edge_views){
+                i.destination_node.parent_edge = null;
+                i.destination_node.parent_node = null;
+            }
             current_node_view = null;
             editor_workspace.Refresh();
             change_edit_pannels();

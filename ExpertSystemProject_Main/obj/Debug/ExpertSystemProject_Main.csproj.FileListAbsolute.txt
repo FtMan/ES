@@ -17,3 +17,13 @@ D:\Git_Repos\ES\ExpertSystemProject_Main\obj\Debug\ExpertSystemProject_Main.cspr
 D:\Git_Repos\ES\ExpertSystemProject_Main\obj\Debug\ExpertSystemProject_Main.Form1.resources
 D:\Git_Repos\ES\ExpertSystemProject_Main\obj\Debug\ExpertSystemProject_Main.Properties.Resources.resources
 D:\Git_Repos\ES\ExpertSystemProject_Main\obj\Debug\ExpertSystemProject_Main.csproj.GenerateResource.Cache
+D:\GitHub\ExpSys1\ES\ExpertSystemProject_Main\bin\Debug\ExpertSystemProject_Main.exe.config
+D:\GitHub\ExpSys1\ES\ExpertSystemProject_Main\bin\Debug\ExpertSystemProject_Main.exe
+D:\GitHub\ExpSys1\ES\ExpertSystemProject_Main\bin\Debug\ExpertSystemProject_Main.pdb
+D:\GitHub\ExpSys1\ES\ExpertSystemProject_Main\obj\Debug\ExpertSystemProject_Main.csprojAssemblyReference.cache
+D:\GitHub\ExpSys1\ES\ExpertSystemProject_Main\obj\Debug\ExpertSystemProject_Main.Form1.resources
+D:\GitHub\ExpSys1\ES\ExpertSystemProject_Main\obj\Debug\ExpertSystemProject_Main.Properties.Resources.resources
+D:\GitHub\ExpSys1\ES\ExpertSystemProject_Main\obj\Debug\ExpertSystemProject_Main.csproj.GenerateResource.cache
+D:\GitHub\ExpSys1\ES\ExpertSystemProject_Main\obj\Debug\ExpertSystemProject_Main.csproj.CoreCompileInputs.cache
+D:\GitHub\ExpSys1\ES\ExpertSystemProject_Main\obj\Debug\ExpertSystemProject_Main.exe
+D:\GitHub\ExpSys1\ES\ExpertSystemProject_Main\obj\Debug\ExpertSystemProject_Main.pdb

@@ -9,7 +9,7 @@ namespace ExpertSystemProject_Main
 {
     class Node_view
     {
-
+        
         public static Size size = new Size(100, 40);
         public static Size ellipse_size = new Size(size.Height / 2, size.Height / 2);
         static Font font = new Font("Arial", 7, FontStyle.Regular);
@@ -240,6 +240,7 @@ namespace ExpertSystemProject_Main
         public void remove_self()
         {
             source_node.edge_views.Remove(this);
+            //destination_node.parent_node = null;
         }
 
         public Edge get_edge()

@@ -19,14 +19,15 @@ namespace ExpertSystemProject_Main
         public List<Fact> facts;
         public List<Node> nodes;
         
-
         public Form1()
         {
             InitializeComponent();
         }
         private void Form1_Load(object sender, EventArgs e)
-        {
-            this.Text = "Expert System v1e-inf";
+        {   
+            
+            this.Text = "Экспертная система";
+
             
 
             default_size = this.Size;
@@ -49,40 +50,39 @@ namespace ExpertSystemProject_Main
 
         //------main menu----------
         List<Control> main_menu_controls;
-        Label title;
+        Label title; 
+        Label Current_ES; //Добавил Радмир
         Button chose_es; //Добавил Радмир
         String PathOfLoad; //Добавил Радмир
         String PathOfSave; //Добавил Радмир
         Button start;
         Button text_edit;
         Button graphic_edit;
-        Image backGround;
 
         void init_main_menu()
         {
             init_title();
+            init_Current_ES();
             init_start_button();
             init_text_edit_button();
             init_graphic_edit_button();
             init_chose_es_button();
-            init_backGround();
 
-           
 
+            this.Controls.Add(Current_ES);
             this.Controls.Add(title);
             this.Controls.Add(start);
             this.Controls.Add(chose_es);
            // this.Controls.Add(text_edit);
             this.Controls.Add(graphic_edit);
 
-            main_menu_controls = new List<Control>(4);
+            main_menu_controls = new List<Control>(6);
             main_menu_controls.Add(title);
             main_menu_controls.Add(start);
             main_menu_controls.Add(text_edit);
             main_menu_controls.Add(graphic_edit);
             main_menu_controls.Add(chose_es);
-            
-
+            main_menu_controls.Add(Current_ES);
         }
         
 
@@ -90,9 +90,19 @@ namespace ExpertSystemProject_Main
         {
             title = new Label();
             title.AutoSize = true;
-            title.Text = "EXPERT SYSTEM";
+            title.Text = "Current Expert System:";
             title.Location = new Point(100, 100);
            
+        }
+
+        void init_Current_ES()
+        {
+            Current_ES = new Label();
+            Current_ES.AutoSize = true;
+            Current_ES.Text = "NONE";
+            Current_ES.Location = new Point(210, 100);
+
+
         }
         void init_start_button()
         {
@@ -129,17 +139,16 @@ namespace ExpertSystemProject_Main
             graphic_edit.Location = new Point(230, 230);
             graphic_edit.Click += new EventHandler(graphic_edit_button_click);
         }
-        void init_backGround()
-        {
-           // backGround = Image.FromFile("mainMenuBackGround.png");
-        }
 
         // Добавил Радмир -------------------------------------------------------
         void chose_es_button_click(object sender,EventArgs e)
         {
             FolderBrowserDialog fd = new FolderBrowserDialog();
+            fd.SelectedPath = Environment.CurrentDirectory + '\\' + "Expert Systems";
             fd.ShowDialog();
             PathOfLoad = fd.SelectedPath;
+            string[] st = PathOfLoad.Split('\\');
+            Current_ES.Text = st[st.Length - 1];
         }
         //--------------------------------------------------------------------------
         void start_button_click(object sender, EventArgs e)
@@ -439,6 +448,7 @@ namespace ExpertSystemProject_Main
         void em_Load_file_button_click(object sender, EventArgs e)
         {
             FolderBrowserDialog fd = new FolderBrowserDialog();//Добавил Радмир
+            fd.SelectedPath = Environment.CurrentDirectory + '\\' + "Expert Systems"; //Добавил Радмир
             fd.ShowDialog();                                    //Добавил Радмир
             PathOfLoad = fd.SelectedPath;                       //Добавил Радмир
             reset_graphic_editor();
@@ -459,10 +469,16 @@ namespace ExpertSystemProject_Main
         void em_save_file_button_click(object sender, EventArgs e)
         {
             FolderBrowserDialog fd = new FolderBrowserDialog();//Добавил Радмир
+            fd.SelectedPath = Environment.CurrentDirectory + '\\' + "Expert Systems";
             fd.ShowDialog();                                    //Добавил Радмир
             PathOfSave = fd.SelectedPath;                       //Добавил Радмир
 
-
+            if (questions == null)
+            {
+                questions = new List<Question>();
+                facts = new List<Fact>();
+                nodes = new List<Node>();
+            }
             reset_id_counters();
             reset_exper_system();
             create_expert_system_from_view();
@@ -516,7 +532,7 @@ namespace ExpertSystemProject_Main
             current_node_view = null;
             current_edge_view = null;
 
-            
+        
             questions.Clear();
             facts.Clear();
             nodes.Clear();
@@ -601,7 +617,7 @@ namespace ExpertSystemProject_Main
             {//bad
                 current_node_view.parent_edge.remove_self();
             }
-          foreach(Edge_view i in current_node_view.edge_views){
+            foreach(Edge_view i in current_node_view.edge_views){
                 i.destination_node.parent_edge = null;
                 i.destination_node.parent_node = null;
             }

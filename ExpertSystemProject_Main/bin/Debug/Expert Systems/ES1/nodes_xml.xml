@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Node_collection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Nodes>
+    <Node>
+      <id>1</id>
+      <qustion_id>1</qustion_id>
+      <nodes_edges>
+        <Edges />
+      </nodes_edges>
+    </Node>
+  </Nodes>
+</Node_collection>

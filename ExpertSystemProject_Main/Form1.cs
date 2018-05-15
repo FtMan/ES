@@ -448,6 +448,7 @@ namespace ExpertSystemProject_Main
         void em_Load_file_button_click(object sender, EventArgs e)
         {
             FolderBrowserDialog fd = new FolderBrowserDialog();//Добавил Радмир
+            fd.SelectedPath = Environment.CurrentDirectory + '\\' + "Expert Systems"; //Добавил Радмир
             fd.ShowDialog();                                    //Добавил Радмир
             PathOfLoad = fd.SelectedPath;                       //Добавил Радмир
             reset_graphic_editor();
@@ -468,6 +469,7 @@ namespace ExpertSystemProject_Main
         void em_save_file_button_click(object sender, EventArgs e)
         {
             FolderBrowserDialog fd = new FolderBrowserDialog();//Добавил Радмир
+            fd.SelectedPath = Environment.CurrentDirectory + '\\' + "Expert Systems";
             fd.ShowDialog();                                    //Добавил Радмир
             PathOfSave = fd.SelectedPath;                       //Добавил Радмир
 

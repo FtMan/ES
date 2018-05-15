@@ -1,7 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+<<<<<<< HEAD
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
+=======
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
+>>>>>>> refs/remotes/origin/master
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpertSystemProject_Main", "ExpertSystemProject_Main.csproj", "{74E2CA10-FCC7-4B4D-BEF9-E405DF524CB5}"
 EndProject
@@ -19,4 +24,10 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+<<<<<<< HEAD
+=======
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {91D55701-6A24-4BE8-8454-C3581F5E1C45}
+	EndGlobalSection
+>>>>>>> refs/remotes/origin/master
 EndGlobal

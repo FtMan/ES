@@ -1230,7 +1230,7 @@ namespace ExpertSystemProject_Main
 
         void ms_restart_button_click(object sender, EventArgs e)
         {
-            
+            start_node = nodes[0];//
             current_node = start_node;
             to_menu.Visible = false;
             current_node_is_answer = false;

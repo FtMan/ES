@@ -5,6 +5,29 @@
       <id>1</id>
       <qustion_id>1</qustion_id>
       <nodes_edges>
+        <Edges>
+          <Edge>
+            <fact_id>1</fact_id>
+            <node_id>2</node_id>
+          </Edge>
+          <Edge>
+            <fact_id>2</fact_id>
+            <node_id>3</node_id>
+          </Edge>
+        </Edges>
+      </nodes_edges>
+    </Node>
+    <Node>
+      <id>2</id>
+      <qustion_id>2</qustion_id>
+      <nodes_edges>
+        <Edges />
+      </nodes_edges>
+    </Node>
+    <Node>
+      <id>3</id>
+      <qustion_id>3</qustion_id>
+      <nodes_edges>
         <Edges />
       </nodes_edges>
     </Node>

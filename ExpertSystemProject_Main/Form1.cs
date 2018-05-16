@@ -1340,6 +1340,7 @@ namespace ExpertSystemProject_Main
             nodes_xml_serialize = (Node_collection)xmlSerializer.Deserialize(xmlReader);
             nodes = nodes_xml_serialize.nodes;
 
+            fileStream.Close();
             xmlReader.Close();
         }
         void load_facts()
@@ -1355,6 +1356,7 @@ namespace ExpertSystemProject_Main
             facts_xml_serialize = (Fact_collection)xmlSerializer.Deserialize(xmlReader);
             facts = facts_xml_serialize.facts;
 
+            fileStream.Close();
             xmlReader.Close();
         }
         void load_questions()
@@ -1370,6 +1372,7 @@ namespace ExpertSystemProject_Main
             questions_xml_serialize = (Question_collection)xmlSerializer.Deserialize(xmlReader);
             questions = questions_xml_serialize.qustions;
 
+            fileStream.Close();
             xmlReader.Close();
         }
 
@@ -1388,6 +1391,7 @@ namespace ExpertSystemProject_Main
 
             xmlSerializer.Serialize(xmlWriter, nodes_xml_serialize);
 
+            //fileStream.Close();
             xmlWriter.Close();
 
         }
@@ -1404,6 +1408,8 @@ namespace ExpertSystemProject_Main
             XmlWriter xmlWriter = XmlWriter.Create(PathOfSave + '/' + "facts_xml.xml", settings); //Было XmlWriter xmlWriter = XmlWriter.Create("facts_xml.xml", settings); Радмир
 
             xmlSerializer.Serialize(xmlWriter, facts_xml_serialize);
+
+           // fileStream.Close();
             xmlWriter.Close();
         }
         void save_questions()
@@ -1420,6 +1426,8 @@ namespace ExpertSystemProject_Main
             XmlWriter xmlWriter = XmlWriter.Create(PathOfSave + '/' + "questions_xml.xml", settings); //Было   XmlWriter xmlWriter = XmlWriter.Create("questions_xml.xml", settings); Радмир
 
             xmlSerializer.Serialize(xmlWriter, questions_xml_serialize);
+
+            //fileStream.Close();
             xmlWriter.Close();
 
         }
